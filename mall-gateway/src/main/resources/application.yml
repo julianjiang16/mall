@@ -1,0 +1,10 @@
+server:
+  port: 9000
+spring:
+  application:
+    name: mall-gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://server1:8001/eureka/
+
