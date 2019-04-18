@@ -1,8 +1,7 @@
 package com.sherlock.mallcommon.utils;
 
 import javafx.util.Pair;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StringUtils;
 
 import java.io.BufferedReader;
@@ -25,10 +24,9 @@ import java.util.regex.Pattern;
  * Date:     2018/11/16 9:51
  * Description: ffempeg工具类
  */
+@Slf4j
 public class FFMpegUtil
 {
-    
-    private static final Logger logger = LoggerFactory.getLogger(FFMpegUtil.class);
     
     // ffmpeg命令所在路径
     private static final String FFMPEG_PATH = "/home/chaoren/ffmpeg/ffmpeg/ffmpeg";
@@ -42,7 +40,7 @@ public class FFMpegUtil
     static
     {
         HOME_PATH = System.getProperty("user.home");
-        logger.info("static home path : " + HOME_PATH);
+        log.info("static home path : {}" , HOME_PATH);
     }
     
 
@@ -67,7 +65,7 @@ public class FFMpegUtil
                 + UUID.randomUUID().toString().replaceAll("-", "") + ".aac";
             // 生成提取音频command命令
             String command = FFMPEG_PATH + " -i " + videoUrl + " -vn -acodec copy " + aacFile;
-            logger.info("video to audio command --------------: " + command);
+            log.info("video to audio command : {}" , command);
             // 添加bin/sh ，防止command被阻挡
             String[] commands = new String[] {"/bin/sh", "-c", command};
             // 执行command命令
@@ -92,7 +90,7 @@ public class FFMpegUtil
         }
         catch (Exception e)
         {
-            logger.error("video change fail，video-url--------" + videoUrl, e);
+            log.error("video change fail，video-url:" , videoUrl, e);
         }
         return new Pair<String, Integer>(resultUrl, duration);
     }

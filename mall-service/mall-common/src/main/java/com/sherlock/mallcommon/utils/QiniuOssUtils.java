@@ -12,8 +12,7 @@ import com.qiniu.storage.model.BatchStatus;
 import com.qiniu.storage.model.DefaultPutRet;
 import com.qiniu.storage.model.FileInfo;
 import com.qiniu.util.Auth;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,11 +28,9 @@ import java.util.Properties;
  * Date:     2018/11/8 10:41
  * Description: 七牛云对象存储工具类
  */
+@Slf4j
 public class QiniuOssUtils
 {
-    
-    /** slf4j log */
-    private static final Logger log = LoggerFactory.getLogger(QiniuOssUtils.class);
     
     /** accessKey */
     private static String accessKey = "";
@@ -72,7 +69,7 @@ public class QiniuOssUtils
         catch (IOException e)
         {
             e.printStackTrace();
-            log.error("QiniuOssUtils初始化，系统异常退出，异常信息：" + e.getMessage());
+            log.error("QiniuOssUtils初始化，系统异常退出，异常信息：" , e.getMessage());
             System.exit(1);
         }
     }
@@ -130,7 +127,7 @@ public class QiniuOssUtils
         {
             Response r = ex.response;
             try {
-                log.info("qiniu upload exception response:"+r.bodyString());
+                log.info("qiniu upload exception response:" , r.bodyString());
             } catch (QiniuException e) {
                 log.info(e.getMessage());
             }
@@ -208,7 +205,7 @@ public class QiniuOssUtils
         }
         catch (QiniuException ex)
         {
-            log.info("operation delete qiniu file exception:"+ex.response.toString());
+            log.info("operation delete qiniu file exception:" , ex.response.toString());
         }
     }
 
