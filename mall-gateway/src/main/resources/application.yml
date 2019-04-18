@@ -8,3 +8,10 @@ eureka:
     service-url:
       defaultZone: http://server1:8001/eureka/
 
+zuul:
+  prefix: /mall
+  routes:
+    mall-goods:
+      path: /mall-goods/**
+      serverId: mall-goods
+      strip-prefix: false

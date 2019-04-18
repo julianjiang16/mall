@@ -20,4 +20,7 @@ public class CommonConstant {
 
     /** 等号分割符 */
     public static final String EQUAL_MARK_SEPARATOR = "=";
+
+    /** and分隔符 */
+    public static final String AND_SEPARATOR = "&";
 }
