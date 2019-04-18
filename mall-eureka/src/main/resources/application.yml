@@ -1,0 +1,63 @@
+server:
+  port: 8001
+
+spring:
+  application:
+    name: mall-eureka
+eureka:
+  instance:
+    hostname: server1
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+
+# 为了模拟高可用集群配置
+
+---
+spring:
+  application:
+    name: mall-eureka
+  profiles : server1
+server:
+  port: 8001
+eureka:
+  instance:
+    hostname: server1
+    prefer-ip-address: false
+  client:
+    service-url:
+      defaultZone: http://server2:8002/eureka/,http://server3:8003/eureka/
+
+---
+spring:
+  application:
+    name: mall-eureka
+  profiles : server2
+server:
+  port: 8002
+eureka:
+  instance:
+    hostname: server2
+    prefer-ip-address: false
+  client:
+    service-url:
+      defaultZone: http://server1:8001/eureka/,http://server3:8003/eureka/
+
+
+---
+spring:
+  application:
+    name: mall-eureka
+  profiles : server3
+server:
+  port: 8003
+eureka:
+  instance:
+    hostname: server3
+    prefer-ip-address: false
+  client:
+    service-url:
+      defaultZone: http://server1:8001/eureka/,http://server2:8002/eureka/
