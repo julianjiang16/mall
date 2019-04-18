@@ -36,6 +36,9 @@ public enum MallErrorEnum {
 
     /** umeng消息推送失败 */
     PUSH_UMENG_MESSAGE_FAIL_ERROR("20008", "PUSH_UMENG_MESSAGE_FAIL_ERROR", "umeng消息推送失败", "umeng push message fail error."),
+
+    /** 服务调用异常 */
+    SERVICE_INVOKE_ERROR("50000","SERVICE_INVOKE_ERROR", "服务调用异常", "service invoke error")
     ;
 
     String code;

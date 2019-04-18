@@ -1,0 +1,11 @@
+server:
+  port: 8089
+  servlet:
+    context-path: /mall-customer
+eureka:
+  client:
+    service-url:
+      defaultZone: http://server1:8001/eureka/
+spring:
+  application:
+    name: mall-customer
