@@ -21,7 +21,7 @@ import java.util.List;
 public class GoodsFallbackHandler implements GoodsFeignService {
     @Override
     public List<GoodsResponseVO> findUserGoods(GoodsRequestVO requestVO) {
-        log.info("service invoke error , invoke params: {}" , requestVO);
+        log.error("service invoke error , invoke params: {}" , requestVO);
         return Lists.newArrayList();
     }
 }

@@ -5,6 +5,7 @@ import com.sherlock.mallcommon.exception.MallException;
 import com.sherlock.mallgoods.service.IGoodsService;
 import com.sherlock.mallgoods.vo.GoodsRequestVO;
 import com.sherlock.mallgoods.vo.GoodsResponseVO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -23,6 +25,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/goods/")
+@Slf4j
 public class GoodsController {
 
     @Autowired
@@ -47,7 +50,7 @@ public class GoodsController {
      */
     @Ignore
     @PostMapping(value = "customer/goods")
-    public List<GoodsResponseVO> findUserGoods(@RequestBody GoodsRequestVO requestVO) throws MallException {
+    public List<GoodsResponseVO> findUserGoods(@RequestBody GoodsRequestVO requestVO, HttpServletRequest request) throws MallException {
         return iGoodsService.findCustomerGoods(requestVO);
     }
 }
