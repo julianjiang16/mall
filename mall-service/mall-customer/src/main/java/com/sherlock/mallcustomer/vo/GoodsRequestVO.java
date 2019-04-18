@@ -1,8 +1,9 @@
-package com.sherlock.mallgoods.vo;
+package com.sherlock.mallcustomer.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  * Copyright (C), 2015-2019
@@ -14,6 +15,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class GoodsRequestVO {
     private String customerId;
     private String no;

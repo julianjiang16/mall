@@ -64,4 +64,18 @@ public class GoodsServiceImpl implements IGoodsService {
 
         return GoodsConverter.convertDOs2VOs(goods);
     }
+
+    @Override
+    public List<GoodsResponseVO> findCustomerGoods(GoodsRequestVO requestVO) throws MallException {
+        if (!requestVO.validatePageInfo()){
+            throw new MallException(MallErrorEnum.ERROR_REQUEST_PARAMS);
+        }
+        GoodsExample example = new GoodsExample();
+        example.setOrderByClause("gmt_create desc");
+        example.setStart(requestVO.getStart());
+        example.setRows(requestVO.getRows());
+        List<Goods> goods = goodsMapper.selectByExample(example);
+        // 没实现查询customer_id
+        return GoodsConverter.convertDOs2VOs(goods);
+    }
 }

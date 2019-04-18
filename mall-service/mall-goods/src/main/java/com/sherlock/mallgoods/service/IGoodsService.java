@@ -18,4 +18,6 @@ public interface IGoodsService {
     GoodsResponseVO findOneByCondition(String id) throws MallException;
 
     List<GoodsResponseVO> findListByCondition(GoodsRequestVO requestVO) throws MallException;
+
+    List<GoodsResponseVO> findCustomerGoods(GoodsRequestVO requestVO) throws MallException;
 }

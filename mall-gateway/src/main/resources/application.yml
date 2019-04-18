@@ -15,3 +15,7 @@ zuul:
       path: /mall-goods/**
       serverId: mall-goods
       strip-prefix: false
+    mall-customer:
+      path: /mall-customer/**
+      serverId: mall-customer
+      strip-prefix: false
