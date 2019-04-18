@@ -11,9 +11,6 @@ import com.sherlock.mallcommon.enums.MallErrorEnum;
  */
 public class MallException  extends Exception  {
 
-    /** 异常枚举类 */
-    private final MallErrorEnum errorEnum;
-
     /** 异常代码 */
     private final String code;
 
@@ -24,9 +21,8 @@ public class MallException  extends Exception  {
     private final String errorObjInfo;
 
     public MallException(MallErrorEnum errorEnum, String errorMsg, String errorObjInfo) {
-        super(errorEnum.getChinaName());
+        super(errorEnum.getDescription());
         this.code = errorEnum.getCode();
-        this.errorEnum = errorEnum;
         this.errorMsg = errorMsg;
         this.errorObjInfo = errorObjInfo;
     }
@@ -34,17 +30,15 @@ public class MallException  extends Exception  {
 
 
     public MallException(MallErrorEnum errorEnum, String errorObjInfo) {
-        super(errorEnum.getChinaName());
+        super(errorEnum.getDescription());
         this.code = errorEnum.getCode();
-        this.errorEnum = errorEnum;
         this.errorMsg = errorEnum.getChinaName();
         this.errorObjInfo = errorObjInfo;
     }
 
     public MallException(MallErrorEnum errorEnum) {
-        super();
+        super(errorEnum.getDescription());
         this.code = errorEnum.getCode();
-        this.errorEnum = errorEnum;
         this.errorMsg = errorEnum.getChinaName();
         this.errorObjInfo = errorEnum.getDescription();
     }

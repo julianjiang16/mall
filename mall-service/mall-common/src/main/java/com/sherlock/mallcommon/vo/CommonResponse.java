@@ -24,8 +24,4 @@ public class CommonResponse<T> implements Serializable {
 
     private T data;
 
-    public CommonResponse(String code, String msg) {
-        this.code = code;
-        this.msg = msg;
-    }
 }

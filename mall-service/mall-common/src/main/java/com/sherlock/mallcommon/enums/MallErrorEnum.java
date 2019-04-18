@@ -2,7 +2,7 @@ package com.sherlock.mallcommon.enums;
 
 
 /**
- * Copyright (C), 2015-2019, 大胜百一网络科技
+ * Copyright (C), 2015-2019,
  * FileName: MallErrorEnum
  * Author:   jcj
  * Date:     2019/4/17 14:22
@@ -10,10 +10,11 @@ package com.sherlock.mallcommon.enums;
  */
 public enum MallErrorEnum {
 
-
+    /** 错误的请求参数 */
+    ERROR_REQUEST_PARAMS("20001", "ERROR_REQUEST_PARAMS", "错误的请求参数", "错误的请求参数"),
 
     /** 主键冲突异常 */
-    DOUBLE_KEY_ERROR("20001", "DOUBLE_KEY_ERROR", "主键冲突错误", "主键冲突错误");
+    DOUBLE_KEY_ERROR("20002", "DOUBLE_KEY_ERROR", "主键冲突错误", "主键冲突错误");
 
     String code;
     String englishName;
