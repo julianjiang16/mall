@@ -18,6 +18,7 @@
         <module>mall-customer</module>
         <module>mall-payment</module>
         <module>mybatis-generator</module>
+        <module>mall-recommend</module>
     </modules>
     <packaging>pom</packaging>
 
