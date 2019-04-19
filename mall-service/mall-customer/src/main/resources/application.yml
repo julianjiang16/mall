@@ -9,3 +9,8 @@ eureka:
 spring:
   application:
     name: mall-customer
+
+feign:
+  hystrix:
+    enabled: true
+
