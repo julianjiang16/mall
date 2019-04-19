@@ -1,4 +1,4 @@
-package com.sherlock.mallgoods.plugins;
+package com.sherlock.mybatis.generator.plugins;
 
 /**
  * @Author: jcj

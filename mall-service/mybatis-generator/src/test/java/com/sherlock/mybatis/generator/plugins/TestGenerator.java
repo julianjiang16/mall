@@ -1,4 +1,4 @@
-package com.sherlock.mallgoods.plugins;
+package com.sherlock.mybatis.generator.plugins;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -15,10 +15,15 @@ public class TestGenerator {
 
     private File configFile;
 
+    private static final String GOODS_MODULE_PATH = "mall-goods";
+
+    private static final String PAYMENT_MODULE_PATH = "mall-payment";
+
     @Before
     public void before() {
         //读取mybatis参数
-        configFile = new File("D:\\project\\mall\\mall-service\\mall-goods\\src\\main\\resources\\generator\\generatorConfig.xml");
+        String path="D:\\project\\mall\\mall-service\\"+PAYMENT_MODULE_PATH+"\\src\\main\\resources\\generator\\generatorConfig.xml";
+        configFile = new File(path);
 
     }
 
