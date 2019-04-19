@@ -1,0 +1,22 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /mall-payment
+
+spring:
+  application:
+    name: mall-payment
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://server1:8001/eureka/
+
+kafka:
+  bootstrap-servers: localhost:9092
+  producer:
+    retries: 0
+    batch-size: 16384
+    buffer-memory: 33554432
+    key-serializer: org.apache.kafka.common.serialization.StringSerializer
+    value-serializer: org.apache.kafka.common.serialization.StringSerializer
