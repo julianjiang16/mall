@@ -15,6 +15,8 @@ public class TestGenerator {
 
     private File configFile;
 
+    private static final String BASE_FILE_PATH = "D:\\project\\mall\\mall-service\\";
+
     private static final String GOODS_MODULE_PATH = "mall-goods";
 
     private static final String PAYMENT_MODULE_PATH = "mall-payment";
@@ -22,13 +24,13 @@ public class TestGenerator {
     @Before
     public void before() {
         //读取mybatis参数
-        String path="D:\\project\\mall\\mall-service\\"+PAYMENT_MODULE_PATH+"\\src\\main\\resources\\generator\\generatorConfig.xml";
+        String path = BASE_FILE_PATH + PAYMENT_MODULE_PATH + "\\src\\main\\resources\\generator\\generatorConfig.xml";
         configFile = new File(path);
 
     }
 
     @Test
-    public void test() throws Exception{
+    public void test() throws Exception {
         List<String> warnings = new ArrayList<String>();
         boolean overwrite = true;
         ConfigurationParser cp = new ConfigurationParser(warnings);

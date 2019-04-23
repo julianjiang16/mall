@@ -12,12 +12,11 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Slf4j
-public class ValidateTokenHandler extends BaseHandler implements GatewayHandler{
+public class ValidateTokenHandler extends AbstractBaseHandler{
 
     @Override
-    public void handler() {
+    public void filter() {
         log.info("validate token handler " );
-        doNext();
     }
 
 }

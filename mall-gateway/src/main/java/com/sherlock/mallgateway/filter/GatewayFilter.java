@@ -48,6 +48,7 @@ public class GatewayFilter extends ZuulFilter implements ApplicationContextAware
         handler1.setNextHandler(handler2);
         handler2.setNextHandler(handler3);
         handler1.handler();
+        System.err.println(this.environment.getProperty("gateway.rule.json"));
         return null;
     }
 

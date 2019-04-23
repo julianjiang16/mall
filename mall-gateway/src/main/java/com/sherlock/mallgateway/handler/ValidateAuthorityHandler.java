@@ -12,10 +12,9 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Slf4j
-public class ValidateAuthorityHandler extends BaseHandler implements GatewayHandler {
+public class ValidateAuthorityHandler extends AbstractBaseHandler {
     @Override
-    public void handler() {
+    public void filter() {
         log.info("validate authority handler " );
-        doNext();
     }
 }

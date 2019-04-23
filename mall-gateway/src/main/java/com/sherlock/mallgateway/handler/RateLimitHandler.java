@@ -12,10 +12,9 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Slf4j
-public class RateLimitHandler extends BaseHandler implements GatewayHandler {
+public class RateLimitHandler extends AbstractBaseHandler {
     @Override
-    public void handler() {
+    public void filter() {
         log.info("rateLimit handler" );
-        doNext();
     }
 }
