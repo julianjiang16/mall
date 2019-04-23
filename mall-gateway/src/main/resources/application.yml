@@ -19,3 +19,7 @@ zuul:
       path: /mall-customer/**
       serverId: mall-customer
       strip-prefix: false
+
+gateway:
+  rule:
+    json: "{\"id\":\"rateLimitHandler\",\"children\":{\"id\":\"validateAuthorityHandler\",\"children\":{\"id\":\"validateTokenHandler\",\"children\":{}}}}"
