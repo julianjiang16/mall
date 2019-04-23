@@ -1,7 +1,7 @@
 package com.sherlock.mallgateway.handler;
 
 /**
- * Copyright (C), 2015-2019, 大胜百一网络科技
+ * Copyright (C), 2015-2019,
  * FileName: GatewayHandler
  * Author:   jcj
  * Date:     2019/4/23 9:06
