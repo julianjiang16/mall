@@ -1,8 +1,10 @@
 package com.sherlock.mallgateway.filter;
 
+import com.alibaba.fastjson.JSONObject;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.exception.ZuulException;
 import com.sherlock.mallgateway.handler.GatewayHandler;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.cloud.netflix.zuul.filters.support.FilterConstants;
 import org.springframework.context.ApplicationContext;
@@ -42,13 +44,25 @@ public class GatewayFilter extends ZuulFilter implements ApplicationContextAware
 
     @Override
     public Object run() throws ZuulException {
-        GatewayHandler handler1 = (GatewayHandler) this.applicationContext.getBean("rateLimitHandler");
-        GatewayHandler handler2 = (GatewayHandler) this.applicationContext.getBean("validateTokenHandler");
-        GatewayHandler handler3 = (GatewayHandler) this.applicationContext.getBean("validateAuthorityHandler");
-        handler1.setNextHandler(handler2);
-        handler2.setNextHandler(handler3);
-        handler1.handler();
-        System.err.println(this.environment.getProperty("gateway.rule.json"));
+        JSONObject json = JSONObject.parseObject(this.environment.getProperty("gateway.rule.json"));
+        if (json == null || StringUtils.isEmpty(json.getString("id"))){
+            return null;
+        }
+        GatewayHandler mainHandler = (GatewayHandler) this.applicationContext.getBean(json.getString("id"));
+        JSONObject current = (JSONObject) json.get("children");
+        GatewayHandler currentHandler = mainHandler;
+        while (current != null){
+            // 省略为空校验了
+            if (StringUtils.isEmpty(current.getString("id"))){
+                break;
+            }
+            GatewayHandler next = (GatewayHandler) this.applicationContext.getBean(current.getString("id"));
+            JSONObject n = current.getJSONObject("children");
+            current = n;
+            currentHandler.setNextHandler(next);
+            currentHandler = next;
+        }
+        mainHandler.handler();
         return null;
     }
 

@@ -22,4 +22,4 @@ zuul:
 
 gateway:
   rule:
-    json: "{id:rateLimitHandler,children:[{id:validateAuthorityHandler:children:[{validateTokenHandler}]}]}"
+    json: "{\"id\":\"rateLimitHandler\",\"children\":{\"id\":\"validateAuthorityHandler\",\"children\":{\"id\":\"validateTokenHandler\",\"children\":{}}}}"
