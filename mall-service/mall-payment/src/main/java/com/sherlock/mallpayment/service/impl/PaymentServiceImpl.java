@@ -50,6 +50,7 @@ public class PaymentServiceImpl implements IPaymentService {
 
     /**
      * 功能描述: <br> 支付逻辑
+     *
      * @version: 1.0.0
      * @Author: jcj
      * @Date: 2019/4/19 10:00
@@ -58,10 +59,16 @@ public class PaymentServiceImpl implements IPaymentService {
     @Override
     public void pay(OrderVO order) {
 
+        // 判断库中order支付状态....
+
         String paymentId = transactionTemplate.execute(new TransactionCallback<String>() {
             @Override
             public String doInTransaction(TransactionStatus transactionStatus) {
-                boolean updateFlag = 1 == orderHeadMapperExt.updateStatusByOrderIdAndStatus(order.getId(), order.getStatus());
+
+                // 通过状态机锁订单
+
+                boolean updateFlag = 1 == orderHeadMapperExt.updateStatusByOrderIdAndStatus(
+                        order.getId(), OrderStatusEnums.DEFAULT_ORDER_STATUS.getCode());
                 // 锁成功 发起支付流水
                 if (updateFlag) {
                     Payment payment = new Payment();
@@ -90,15 +97,15 @@ public class PaymentServiceImpl implements IPaymentService {
                     @Override
                     protected void doInTransactionWithoutResult(TransactionStatus transactionStatus) {
                         orderHeadMapper.updateByPrimaryKeySelective(OrderConverter.convertVO2DO(payOrder));
-                        Payment payment =  new Payment();
+                        Payment payment = new Payment();
                         payment.setId(paymentId);
                         payment.setStatus(payOrder.getStatus());
                         paymentMapper.updateByPrimaryKeySelective(payment);
                     }
                 });
             }
-        }else {
-            log.warn("payment not get the lock , order info : {}",order);
+        } else {
+            log.warn("payment not get the lock , order info : {}", order);
         }
     }
 }
