@@ -1,0 +1,12 @@
+server:
+  port: 8091
+  servlet:
+    context-path: /sks
+
+spring:
+  application:
+    name: sks
+  redis:
+    host: localhost
+    pool: 6379
+    database: 1
