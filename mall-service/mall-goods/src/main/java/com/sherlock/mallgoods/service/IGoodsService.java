@@ -1,10 +1,11 @@
 package com.sherlock.mallgoods.service;
 
+import com.sherlock.mall.goods.api.dto.GoodsRequestVO;
+import com.sherlock.mall.goods.api.dto.GoodsResponseVO;
 import com.sherlock.mallcommon.exception.MallException;
-import com.sherlock.mallgoods.vo.GoodsRequestVO;
-import com.sherlock.mallgoods.vo.GoodsResponseVO;
 
 import java.util.List;
+
 
 /**
  * Copyright (C), 2015-2019,

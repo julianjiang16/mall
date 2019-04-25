@@ -1,5 +1,7 @@
 package com.sherlock.mallgoods.service.impl;
 
+import com.sherlock.mall.goods.api.dto.GoodsRequestVO;
+import com.sherlock.mall.goods.api.dto.GoodsResponseVO;
 import com.sherlock.mallcommon.constant.CommonConstant;
 import com.sherlock.mallcommon.enums.MallErrorEnum;
 import com.sherlock.mallcommon.exception.MallException;
@@ -8,8 +10,6 @@ import com.sherlock.mallgoods.mapper.goods.GoodsMapper;
 import com.sherlock.mallgoods.model.goods.Goods;
 import com.sherlock.mallgoods.model.goods.GoodsExample;
 import com.sherlock.mallgoods.service.IGoodsService;
-import com.sherlock.mallgoods.vo.GoodsRequestVO;
-import com.sherlock.mallgoods.vo.GoodsResponseVO;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

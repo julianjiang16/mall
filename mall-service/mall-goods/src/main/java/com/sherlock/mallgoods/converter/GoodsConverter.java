@@ -1,7 +1,7 @@
 package com.sherlock.mallgoods.converter;
 
+import com.sherlock.mall.goods.api.dto.GoodsResponseVO;
 import com.sherlock.mallgoods.model.goods.Goods;
-import com.sherlock.mallgoods.vo.GoodsResponseVO;
 
 import java.util.List;
 import java.util.stream.Collectors;
