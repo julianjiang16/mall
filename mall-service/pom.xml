@@ -20,6 +20,7 @@
         <module>mybatis-generator</module>
         <module>mall-recommend</module>
         <module>mall-sks</module>
+        <module>mall-goods-api</module>
     </modules>
     <packaging>pom</packaging>
 

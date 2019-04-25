@@ -15,6 +15,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.sherlock</groupId>
+            <artifactId>mall-goods-api</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>2.0.0</version>

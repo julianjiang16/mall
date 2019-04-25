@@ -1,4 +1,4 @@
-package com.sherlock.mallgoods.vo;
+package com.sherlock.mall.goods.api.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
