@@ -16,7 +16,7 @@ import java.util.List;
  * FileName: GoodsService
  * Author:   jcj
  * Date:     2019/4/17 17:12
- * Description:
+ * Description: 服务器、客户端共有，抽取出来，继承依赖
  */
 
 @RequestMapping("/goods/")
